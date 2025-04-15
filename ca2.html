@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>Cyber Security Forensic Services</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-
+beta3/css/all.min.css">
+<style>
+    /* General Styles */
+body {
+font-family: 'Roboto', sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+color: #333;
+}
+h1, h2, h3 {
+font-family: 'Open Sans', sans-serif;
+}
+/* Navbar */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #263b85;
+padding: 1rem 2rem;
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+.logo img {
+height: 50px;
+transition: height 0.3s;
+}
+.nav-links {
+display: flex;
+list-style: none;
+}
+.nav-links li {
+margin: 0 1rem;
+}
+.nav-links a {
+color: white;
+text-decoration: none;
+font-size: 1rem;
+}
+.hamburger {
+display: none;
+flex-direction: column;
+cursor: pointer;
+}
+.bar {
+width: 25px;
+height: 3px;
+background-color: white;
+margin: 4px 0;
+}
+/* Hero Section */
+.hero {
+background: url('hero-bg.jpg') no-repeat center
+center/cover;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+color: black;
+text-align: center;
+}
+.hero-content h1 {
+font-size: 3rem;
+animation: fadeIn 2s ease-in-out;
+}
+.hero-content p {
+font-size: 1.5rem;
+animation: fadeIn 3s ease-in-out;
+}
+.hero-buttons {
+margin-top: 2rem;
+animation: fadeIn 4s ease-in-out;
+}
+.btn {
+background-color: #FF6B35;
+color: white;
+padding: 0.5rem 1rem;
+text-decoration: none;
+border-radius: 5px;
+margin: 0.5rem;
+transition: background-color 0.3s;
+}
+.btn:hover {
+background-color: #e65a2b;
+}
+/* About Section */
+/* About Section */
+.about {
+padding: 4rem 2rem;
+text-align: center;
+background-color: #f9f9f9;
+}
+.about-content h2 {
+font-size: 2.5rem;
+margin-bottom: 2rem;
+color: #0A1F3A;
+animation: fadeIn 1.5s ease-in-out;
+}
+.about-grid {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
+}
+.about-text {
+flex: 1;
+text-align: left;
+animation: slideInLeft 1.5s ease-in-out;
+}
+.about-text p {
+font-size: 1.1rem;
+line-height: 1.6;
+color: #555;
+margin-bottom: 1.5rem;
+}
+.about-text .btn {
+background-color: #FF6B35;
+color: white;
+padding: 0.75rem 1.5rem;
+text-decoration: none;
+border-radius: 5px;
+transition: background-color 0.3s;
+}
+.about-text .btn:hover {
+background-color: #e65a2b;
+}
+.about-image {
+flex: 1;
+animation: slideInRight 1.5s ease-in-out;
+}
+.about-image img {
+width: 100%;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+/* Animations */
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+to {
+opacity: 1;
+}
+}
+@keyframes slideInLeft {
+from {
+transform: translateX(-100%);
+opacity: 0;
+}
+to {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes slideInRight {
+from {
+transform: translateX(100%);
+opacity: 0;
+}
+to {
+transform: translateX(0);
+opacity: 1;
+}
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+.about-grid {
+flex-direction: column;
+text-align: center;
+}
+.about-text {
+text-align: center;
+}
+.about-image {
+order: -1; /* Image above text on smaller screens */
+}
+}
+/* Services Section */
+.services {
+padding: 4rem 2rem;
+text-align: center;
+}
+.service-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px,
+1fr));
+gap: 2rem;
+}
+.service-card {
+background-color: #F5F5F5;
+padding: 1rem;
+border-radius: 10px;
+transition: transform 0.3s;
+}
+.service-card:hover {
+transform: translateY(-10px);
+}
+.service-card img {
+width: 100%;
+border-radius: 10px;
+}
+/* Training Section */
+.training {
+padding: 4rem 2rem;
+text-align: center;
+}
+.training-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px,
+1fr));
+gap: 2rem;
+}
+.training-card {
+background-color: #F5F5F5;
+padding: 1rem;
+border-radius: 10px;
+transition: transform 0.3s;
+}
+.training-card:hover {
+transform: translateY(-10px);
+}
+.training-card img {
+width: 100%;
+border-radius: 10px;
+}
+/* Remote Support Section */
+.remote {
+padding: 4rem 2rem;
+text-align: center;
+}
+.remote-content img {
+width: 100%;
+max-width: 500px;
+border-radius: 10px;
+margin-bottom: 1rem;
+}
+/* Contact Section */
+.contact {
+padding: 4rem 2rem;
+text-align: center;
+background-color: #f9f9f9; /* Light background */
+transition: background-color 0.5s ease-in-out;
+}
+.contact:hover {
+background-color: #0A1F3A; /* Dark background on
+hover */
+}
+.contact h2 {
+font-size: 2.5rem;
+margin-bottom: 2rem;
+color: #0A1F3A; /* Dark blue for heading */
+transition: color 0.5s ease-in-out;
+}
+.contact:hover h2 {
+color: white; /* White text on dark background */
+}
+.contact-container {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out, box-shadow 0.3s
+ease-in-out;
+}
+.contact-container:hover {
+transform: translateY(-10px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.contact-info {
+text-align: left;
+flex: 1;
+}
+.contact-info p {
+font-size: 1.1rem;
+color: #555;
+margin-bottom: 1rem;
+transition: color 0.5s ease-in-out;
+}
+.contact:hover .contact-info p {
+color: white; /* White text on dark background */
+}
+.contact-info i {
+margin-right: 0.5rem;
+color: #FF6B35; /* Orange accent color */
+}
+.contact-form {
+flex: 1;
+}
+.contact-form input,
+.contact-form textarea {
+width: 100%;
+padding: 0.75rem;
+margin-bottom: 1rem;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 1rem;
+transition: border-color 0.3s ease-in-out;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+border-color: #FF6B35; /* Orange accent color on focus
+*/
+outline: none;
+}
+.contact-form textarea {
+resize: vertical;
+height: 150px;
+}
+.contact-form button {
+background-color: #FF6B35;
+color: white;
+padding: 0.75rem 1.5rem;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+cursor: pointer;
+transition: background-color 0.3s ease-in-out;
+}
+.contact-form button:hover {
+background-color: #e65a2b; /* Darker orange on hover
+*/
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+.contact-container {
+flex-direction: column;
+text-align: center;
+}
+.contact-info {
+text-align: center;
+}
+}
+/* Footer */
+/* Footer */
+.footer {
+background-color: #0A1F3A; /* Dark blue background */
+color: white;
+padding: 2rem 1rem;
+font-family: 'Roboto', sans-serif;
+}
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px,
+1fr));
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
+padding: 1rem;
+}
+.footer-section {
+margin-bottom: 1.5rem;
+}
+.footer-section h3 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+color: #FF6B35; /* Orange accent color */
+}
+.footer-section p {
+font-size: 1rem;
+line-height: 1.6;
+color: #ddd;
+}
+.footer-section ul {
+list-style: none;
+padding: 0;
+}
+.footer-section ul li {
+margin-bottom: 0.5rem;
+}
+.footer-section ul li a {
+color: #ddd;
+text-decoration: none;
+transition: color 0.3s;
+}
+.footer-section ul li a:hover {
+color: #FF6B35; /* Orange accent color on hover */
+}
+.social-icons {
+display: flex;
+gap: 1rem;
+}
+.social-icons a {
+color: white;
+font-size: 1.5rem;
+transition: color 0.3s;
+}
+.social-icons a:hover {
+color: #FF6B35; /* Orange accent color on hover */
+}
+.footer-bottom {
+text-align: center;
+padding: 1rem 0;
+border-top: 1px solid #444;
+margin-top: 2rem;
+}
+.footer-bottom p {
+margin: 0;
+font-size: 0.9rem;
+color: #ddd;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+.footer-content {
+grid-template-columns: 1fr;
+text-align: center;
+}
+.social-icons {
+justify-content: center;
+}
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+.nav-links {
+display: none;
+flex-direction: column;
+width: 100%;
+}
+.nav-links.active {
+display: flex;
+}
+.hamburger {
+display: flex;
+}
+.logo img {
+height: 25px;
+}
+.about-grid, .contact-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="logo">
+<img src="./image/cyberlogo.jpg" alt="Cyber Security Logo">
+</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#remote">Remote Support</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="hamburger">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</div>
+</nav>
+<!-- Home Section -->
+<section id="home" class="hero">
+<div class="hero-content">
+<h1>Protecting Your Digital World</h1>
+<p>Expert Cyber Security and Forensic Solutions</p>
+<div class="hero-buttons">
+<a href="#services" class="btn">Learn More</a>
+<a href="#contact" class="btn">Contact Us</a>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="about">
+<div class="about-content">
+<h2>About Us</h2>
+<div class="about-grid">
+<div class="about-text">
+<p>We specialize in providing cutting-edge cyber security
+and forensic services to protect your digital assets. Our team of
+experts is dedicated to ensuring your systems are secure and
+resilient against threats.</p>
+<a href="#services" class="btn">Explore Our Services</a>
+</div>
+<div class="about-image">
+<img src="./image/about.jpg" alt="About Us">
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="services">
+<h2>Our Services</h2>
+<div class="service-grid">
+<div class="service-card">
+<img src="./image/analycis.jpg" alt="Threat Analysis">
+<h3>Threat Analysis</h3>
+<p>Identify and mitigate potential threats to your
+systems.</p>
+</div>
+<div class="service-card">
+<img src="./image/Digital Forensics.jpg" alt="Digital Forensics">
+<h3>Digital Forensics</h3>
+<p>Investigate and analyze digital evidence for legal
+cases.</p>
+</div>
+<div class="service-card">
+<img src="./image/Incident Response.jpg" alt="Incident Response">
+<h3>Incident Response</h3>
+<p>Rapid response to security breaches and incidents.</p>
+</div>
+</div>
+</section>
+<!-- Training Section -->
+<section id="training" class="training">
+<h2>Training & Workshops</h2>
+<div class="training-grid">
+<div class="training-card">
+<img src="./image/Cyber Security Basics.jpg" alt="Cyber Security
+Basics">
+<h3>Cyber Security Basics</h3>
+<p>Learn the fundamentals of cyber security.</p>
+</div>
+<div class="training-card">
+<img src="./image/Advanced Forensics.jpg" alt="Advanced
+Forensics">
+<h3>Advanced Forensics</h3>
+<p>Master advanced digital forensic techniques.</p>
+</div>
+</div>
+</section>
+<!-- Remote Support Section -->
+<section id="remote" class="remote">
+<h2>Remote Forensics Support</h2>
+<div class="remote-content">
+<img src="./image/Get expert.jpg" alt="Remote Support">
+<p>Get expert forensic support remotely. Contact us for
+assistance.</p>
+<a href="#contact" class="btn">Request Support</a>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+<h2>Contact Us</h2>
+<div class="contact-container">
+<div class="contact-info">
+<p><i class="fas fa-envelope"></i>
+ankitsingh123@gmail.com</p>
+<p><i class="fas fa-phone"></i> +9534683231</p>
+<p><i class="fas fa-map-marker-alt"></i> Cyber Street, Tech
+City</p>
+</div>
+<div class="contact-form">
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Cyber Security Forensic Services</h3>
+<p>Protecting your digital world with cutting-edge security
+solutions.</p>
+</div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Contact Us</h3>
+<p><i class="fas fa-map-marker-alt"></i> 123 Cyber Street,
+Tech City</p>
+<p><i class="fas fa-phone"></i> +123 456 7890</p>
+<p><i class="fas fa-envelope"></i>
+info@cybersecurity.com</p>
+</div>
+<div class="footer-section">
+<h3>Follow Us</h3>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2023 Cyber Security Forensic Services. All rights
+reserved.</p>
+</div>
+</footer>
+//Script Section
+<script src="script.js">
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+navLinks.classList.toggle('active');
+});
+// Logo Shrink on Scroll
+window.addEventListener('scroll', () => {
+const logo = document.querySelector('.logo img');
+if (window.scrollY > 50) {
+logo.style.height = '25px';
+} else {
+logo.style.height = '50px';
+}
+});
+</script>
+</body>
+</html>
